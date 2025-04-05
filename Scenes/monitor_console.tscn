@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbj53mololj3"]
+
+[ext_resource type="Script" path="res://Scripts/monitor_console.gd" id="1_xb87b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4681i"]
+size = Vector2(32, 16)
+
+[node name="monitor_console" type="Node2D"]
+script = ExtResource("1_xb87b")
+
+[node name="player_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection_area"]
+shape = SubResource("RectangleShape2D_4681i")

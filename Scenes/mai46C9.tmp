@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8vdmki4xlxp7"]
+
+[ext_resource type="Texture2D" uid="uid://dt13vvb0qkhyj" path="res://Assets/start.png" id="1_fupq6"]
+[ext_resource type="Texture2D" uid="uid://3hatpr0urrfo" path="res://Assets/settings.png" id="2_7yjex"]
+[ext_resource type="Script" path="res://Scenes/button.gd" id="2_s2g8g"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-2, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1922.0
+offset_bottom = 1081.0
+scale = Vector2(1.00221, 1.00204)
+color = Color(0.00574591, 0.0168702, 0.0549824, 1)
+
+[node name="start_button" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 50)
+offset_left = 910.0
+offset_top = 462.0
+offset_right = 1016.0
+offset_bottom = 512.0
+icon = ExtResource("1_fupq6")
+flat = true
+script = ExtResource("2_s2g8g")
+
+[node name="settings_button" type="Button" parent="."]
+texture_filter = 1
+offset_left = 911.0
+offset_top = 503.0
+offset_right = 1004.0
+offset_bottom = 519.0
+icon = ExtResource("2_7yjex")
+flat = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 540)

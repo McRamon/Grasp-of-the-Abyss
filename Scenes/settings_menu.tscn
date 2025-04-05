@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3nvfyntdjeay"]
+
+[ext_resource type="Texture2D" uid="uid://bej616xxm8tsd" path="res://Assets/main_menu.png" id="1_otkgv"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="2_wjik2"]
+[ext_resource type="Texture2D" uid="uid://db2ui6ykcfvgj" path="res://Assets/sound_volume.png" id="4_p2ngv"]
+[ext_resource type="PackedScene" uid="uid://dn6mqiysrm41d" path="res://Scenes/audio_slider.tscn" id="4_ywm7p"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-2, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+color = Color(0.00574591, 0.0168702, 0.0549824, 1)
+
+[node name="main_menu_button" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 50)
+offset_left = -158.0
+offset_top = 38.0
+offset_right = -52.0
+offset_bottom = 88.0
+pivot_offset = Vector2(53, 25)
+focus_mode = 0
+icon = ExtResource("1_otkgv")
+flat = true
+script = ExtResource("2_wjik2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-86, -62)
+texture = ExtResource("4_p2ngv")
+
+[node name="HSlider" parent="." instance=ExtResource("4_ywm7p")]
+offset_left = -37.0
+offset_top = -79.0
+offset_right = 74.0
+offset_bottom = -46.0

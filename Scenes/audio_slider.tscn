@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn6mqiysrm41d"]
+
+[ext_resource type="Texture2D" uid="uid://c4p8qu54xygu0" path="res://Assets/slider_1.png" id="1_dxaj1"]
+[ext_resource type="Texture2D" uid="uid://cwj6uv3m0vx1u" path="res://Assets/slider_2.png" id="2_tkvvj"]
+[ext_resource type="Script" path="res://Scripts/audio_slider.gd" id="3_pvrcy"]
+
+[sub_resource type="Theme" id="Theme_n0j5b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0p3k"]
+texture = ExtResource("2_tkvvj")
+texture_margin_bottom = 7.0
+
+[node name="HSlider" type="HSlider"]
+texture_filter = 1
+offset_left = -27.0
+offset_top = -8.0
+offset_right = 27.0
+offset_bottom = 8.0
+pivot_offset = Vector2(27, 8)
+focus_mode = 0
+theme = SubResource("Theme_n0j5b")
+theme_override_icons/grabber = ExtResource("1_dxaj1")
+theme_override_icons/grabber_highlight = ExtResource("1_dxaj1")
+theme_override_styles/slider = SubResource("StyleBoxTexture_d0p3k")
+value = 50.0
+script = ExtResource("3_pvrcy")

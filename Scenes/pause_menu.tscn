@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://crfkkgka0slcv"]
+
+[ext_resource type="Texture2D" uid="uid://jkaclwrm1fdy" path="res://Assets/resume.png" id="1_a2mj1"]
+[ext_resource type="Texture2D" uid="uid://db2ui6ykcfvgj" path="res://Assets/sound_volume.png" id="2_jo0ak"]
+[ext_resource type="Script" path="res://Scripts/button_resume.gd" id="4_lkjbl"]
+[ext_resource type="Texture2D" uid="uid://bej616xxm8tsd" path="res://Assets/main_menu.png" id="5_6db3v"]
+[ext_resource type="PackedScene" uid="uid://dn6mqiysrm41d" path="res://Scenes/audio_slider.tscn" id="6_2quhq"]
+[ext_resource type="Script" path="res://Scripts/button_main_menu.gd" id="6_nnvrq"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+offset = Vector2(60, 35)
+transform = Transform2D(1, 0, 0, 1, 60, 35)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 200.0
+offset_bottom = 110.0
+color = Color(0.0392157, 0.0392157, 0.0745098, 0.901961)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(51.5, 53.5)
+texture = ExtResource("2_jo0ak")
+
+[node name="Resume" type="Button" parent="."]
+texture_filter = 1
+offset_left = 61.0
+offset_top = 3.0
+offset_right = 137.0
+offset_bottom = 34.0
+pivot_offset = Vector2(38, 15)
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.21
+focus_mode = 0
+icon = ExtResource("1_a2mj1")
+flat = true
+script = ExtResource("4_lkjbl")
+
+[node name="back_to_menu" type="Button" parent="."]
+texture_filter = 1
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 147.0
+offset_bottom = 96.0
+pivot_offset = Vector2(50, 8)
+focus_mode = 0
+icon = ExtResource("5_6db3v")
+flat = true
+script = ExtResource("6_nnvrq")
+
+[node name="HSlider" parent="." instance=ExtResource("6_2quhq")]
+offset_left = 96.0
+offset_top = 35.0
+offset_right = 186.0
+offset_bottom = 68.0
