@@ -162,7 +162,7 @@ func oxy_ui_handle():
 func game_over():
 	if power_counter > 5:
 		_exit_tree()
-		get_tree().change_scene_to_file("res://Scripts/gameover_screens/gameover_power.gd")
+		get_tree().change_scene_to_file("res://Scenes/Game Over/gameover_power.gd")
 	if oxygen_counter > 5:
 		_exit_tree()
 		get_tree().change_scene_to_file("res://Scenes/Game Over/gameover_oxygen.tscn")
@@ -172,7 +172,7 @@ func game_over():
 
 	if alarm_counter > 5:
 		_exit_tree()
-		get_tree().change_scene_to_file("res://Scripts/gameover_screens/gameover_siren.gd")
+		get_tree().change_scene_to_file("res://Scenes/Game Over/gameover_siren.gd")
 		
 func _exit_tree():
 	for target in Animations.active_float_tweens:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=4 uid="uid://gdr5pm078wqb"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_38go5"]
-[ext_resource type="Texture2D" uid="uid://cwktbjqhn23h7" path="res://Assets/Sprites/base_tiles.png" id="2_auriy"]
+[ext_resource type="Texture2D" uid="uid://cwktbjqhn23h7" path="res://Assets/base_tiles.png" id="2_auriy"]
 [ext_resource type="PackedScene" uid="uid://c052mx3sdib4k" path="res://Scenes/Player.tscn" id="3_0kawi"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_ifnfa"]
 [ext_resource type="PackedScene" uid="uid://b6nfj13v2r2u8" path="res://Scenes/valve.tscn" id="5_o8mhy"]
