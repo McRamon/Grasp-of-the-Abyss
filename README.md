@@ -14,6 +14,7 @@ Built with:
 
 
 Links:
-
+https://mcramon.itch.io/gripoftheabyss - Itch.Io
+https://ldjam.com/events/ludum-dare/57/grip-of-the-abyss - Ludum Dare page
 
  
