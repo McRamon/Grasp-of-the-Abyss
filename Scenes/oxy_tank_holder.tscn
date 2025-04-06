@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt1kcu8fp5vdt"]
+
+[ext_resource type="Script" path="res://Scripts/oxy_tank_holder.gd" id="1_106qx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_137kd"]
+size = Vector2(16, 16)
+
+[node name="oxy_tank_holder" type="Node2D"]
+script = ExtResource("1_106qx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_137kd")

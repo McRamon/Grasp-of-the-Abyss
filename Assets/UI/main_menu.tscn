@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8vdmki4xlxp7"]
+
+[ext_resource type="Texture2D" uid="uid://css7e3j7uvab2" path="res://Assets/Sprites/UI/start.png" id="1_rwdkt"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_tdonr"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="2_vf8tn"]
+[ext_resource type="PackedScene" uid="uid://gdr5pm078wqb" path="res://Scenes/main_game_level.tscn" id="3_epi2n"]
+[ext_resource type="Texture2D" uid="uid://57o23lyohqcp" path="res://Assets/Sprites/UI/ui_sub.png" id="5_0id51"]
+[ext_resource type="Texture2D" uid="uid://bsukpqglwcg84" path="res://Assets/Sprites/UI/ui_sub_light_1.png" id="6_0r2kj"]
+[ext_resource type="Texture2D" uid="uid://dxo6cal01ttxu" path="res://Assets/Sprites/UI/ui_sub_light_2.png" id="7_j1y64"]
+[ext_resource type="Texture2D" uid="uid://1yvmrax2doc2" path="res://Assets/Sprites/UI/ui_tutorial.png" id="8_shf3y"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-2, 0)
+script = ExtResource("1_tdonr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -240.0
+offset_top = -135.0
+offset_right = 240.0
+offset_bottom = 135.0
+scale = Vector2(1.00221, 1.00204)
+color = Color(0.00574591, 0.0168702, 0.0549824, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="start_button" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = 30.0
+offset_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(79, 25)
+focus_mode = 0
+icon = ExtResource("1_rwdkt")
+flat = true
+script = ExtResource("2_vf8tn")
+scene_to_load = ExtResource("3_epi2n")
+
+[node name="sub" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(136, -65.5)
+texture = ExtResource("5_0id51")
+region_enabled = true
+region_rect = Rect2(219, 0, 186, 127)
+
+[node name="syb_dark" type="Sprite2D" parent="sub"]
+visible = false
+texture_filter = 1
+texture = ExtResource("5_0id51")
+region_enabled = true
+region_rect = Rect2(0, 0, 186, 127)
+
+[node name="light_main" type="Sprite2D" parent="sub"]
+texture_filter = 1
+position = Vector2(-174, 113)
+texture = ExtResource("6_0r2kj")
+offset = Vector2(0.5, 0.5)
+
+[node name="light_red" type="Sprite2D" parent="sub"]
+texture_filter = 1
+position = Vector2(32, -1)
+texture = ExtResource("7_j1y64")
+offset = Vector2(0, 0.5)
+
+[node name="ambient" type="AudioStreamPlayer2D" parent="."]
+bus = &"Ambience"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-105, -86)
+texture = ExtResource("8_shf3y")

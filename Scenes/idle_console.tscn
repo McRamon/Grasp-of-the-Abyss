@@ -1,0 +1,125 @@
+[gd_scene load_steps=16 format=3 uid="uid://b0ndrkkf0crpa"]
+
+[ext_resource type="Texture2D" uid="uid://cv6jb2plnye58" path="res://Assets/Sprites/disorganised_moshpit_of_sprites.png" id="1_thlga"]
+[ext_resource type="Script" path="res://Scripts/idle_console.gd" id="2_6g7e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tyf4"]
+atlas = ExtResource("1_thlga")
+region = Rect2(2, 97, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ush"]
+atlas = ExtResource("1_thlga")
+region = Rect2(2, 101, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yqqk"]
+atlas = ExtResource("1_thlga")
+region = Rect2(2, 105, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nou8r"]
+atlas = ExtResource("1_thlga")
+region = Rect2(2, 109, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaqrr"]
+atlas = ExtResource("1_thlga")
+region = Rect2(11, 97, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ioov"]
+atlas = ExtResource("1_thlga")
+region = Rect2(11, 101, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eldo"]
+atlas = ExtResource("1_thlga")
+region = Rect2(11, 105, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l67jo"]
+atlas = ExtResource("1_thlga")
+region = Rect2(11, 109, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1226"]
+atlas = ExtResource("1_thlga")
+region = Rect2(20, 97, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rafbi"]
+atlas = ExtResource("1_thlga")
+region = Rect2(20, 101, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dc14"]
+atlas = ExtResource("1_thlga")
+region = Rect2(20, 105, 8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jvti"]
+atlas = ExtResource("1_thlga")
+region = Rect2(20, 109, 8, 3)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4xcj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tyf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ush")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yqqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nou8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaqrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ioov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eldo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l67jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1226")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rafbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dc14")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jvti")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(10, -41)
+sprite_frames = SubResource("SpriteFrames_c4xcj")
+animation = &"idle"
+offset = Vector2(0, 0.5)
+script = ExtResource("2_6g7e3")
+
+[node name="alarm_console" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 71)
+texture = ExtResource("1_thlga")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(31, 15, 3, 11)
+
+[node name="alarm_console_alarm" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(20, 70)
+texture = ExtResource("1_thlga")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(31, 28, 11, 13)

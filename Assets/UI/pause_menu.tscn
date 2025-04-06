@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://crfkkgka0slcv"]
+
+[ext_resource type="Texture2D" uid="uid://ctomsva64eafx" path="res://Assets/Sprites/UI/ui_sound_volume.png" id="1_kwpk4"]
+[ext_resource type="Script" path="res://Scripts/button_resume.gd" id="2_4ixgp"]
+[ext_resource type="Texture2D" uid="uid://bjcdea7ndkw1y" path="res://Assets/Sprites/UI/ui_menu_buttons.png" id="3_n6roq"]
+[ext_resource type="PackedScene" uid="uid://dn6mqiysrm41d" path="res://Scenes/audio_slider.tscn" id="6_l8pob"]
+[ext_resource type="PackedScene" uid="uid://d33ao5nu5rpsg" path="res://Assets/UI/main_menu_button.tscn" id="6_xepd5"]
+[ext_resource type="Texture2D" uid="uid://ceeg6r58ur66" path="res://Assets/Sprites/UI/ui_bg.png" id="7_16maf"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0.0392157, 0.0392157, 0.0745098, 0.901961)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(115, 136)
+texture = ExtResource("1_kwpk4")
+
+[node name="Resume" type="Button" parent="."]
+texture_filter = 1
+offset_left = 207.0
+offset_top = 22.0
+offset_right = 283.0
+offset_bottom = 53.0
+pivot_offset = Vector2(38, 15)
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.21
+focus_mode = 0
+flat = true
+script = ExtResource("2_4ixgp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Resume"]
+position = Vector2(38, 18)
+texture = ExtResource("3_n6roq")
+region_enabled = true
+region_rect = Rect2(25, 46, 119, 39)
+
+[node name="HSlider" parent="." instance=ExtResource("6_l8pob")]
+offset_left = 230.0
+offset_top = 100.0
+offset_right = 320.0
+offset_bottom = 133.0
+scale = Vector2(2.16482, 2.16482)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_16maf")
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(480, 270)
+
+[node name="main_menu_button" parent="." instance=ExtResource("6_xepd5")]
+offset_left = 154.0
+offset_top = 214.0
+offset_right = 322.0
+offset_bottom = 246.0

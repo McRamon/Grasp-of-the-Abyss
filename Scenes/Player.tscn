@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c052mx3sdib4k"]
+[gd_scene load_steps=5 format=3 uid="uid://c052mx3sdib4k"]
 
 [ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_jd8ud"]
-[ext_resource type="Texture2D" uid="uid://bbjlffo1cu3fb" path="res://Assets/character.png" id="2_vk3ep"]
+[ext_resource type="Texture2D" uid="uid://bbjlffo1cu3fb" path="res://Assets/Sprites/character.png" id="2_vk3ep"]
+[ext_resource type="Texture2D" uid="uid://cv6jb2plnye58" path="res://Assets/Sprites/disorganised_moshpit_of_sprites.png" id="3_gr82m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21l8m"]
 size = Vector2(10, 10)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("held_tank")]
 script = ExtResource("1_jd8ud")
+held_tank = NodePath("Sprite2D/held_tank")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -19,6 +21,14 @@ position = Vector2(-7, -12)
 texture = ExtResource("2_vk3ep")
 centered = false
 region_rect = Rect2(74, 9, 13, 13)
+
+[node name="held_tank" type="Sprite2D" parent="Sprite2D"]
+texture_filter = 1
+position = Vector2(7, 11)
+texture = ExtResource("3_gr82m")
+offset = Vector2(0, 0.5)
+region_enabled = true
+region_rect = Rect2(1, 37, 22, 9)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 16)

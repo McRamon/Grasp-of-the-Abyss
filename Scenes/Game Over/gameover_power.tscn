@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://rvy70jlewkdm"]
+
+[ext_resource type="Script" path="res://Scripts/gameover_screens/gameover_power.gd" id="1_t418e"]
+[ext_resource type="Texture2D" uid="uid://ceeg6r58ur66" path="res://Assets/Sprites/UI/ui_bg.png" id="2_h5bue"]
+[ext_resource type="Texture2D" uid="uid://57o23lyohqcp" path="res://Assets/Sprites/UI/ui_sub.png" id="3_sdwu5"]
+[ext_resource type="Texture2D" uid="uid://bsukpqglwcg84" path="res://Assets/Sprites/UI/ui_sub_light_1.png" id="4_45xbo"]
+[ext_resource type="Texture2D" uid="uid://dxo6cal01ttxu" path="res://Assets/Sprites/UI/ui_sub_light_2.png" id="5_wr0ib"]
+[ext_resource type="Texture2D" uid="uid://b4vgskpx4hqne" path="res://Assets/Sprites/UI/ui_screens_words.png" id="6_6qypr"]
+[ext_resource type="Texture2D" uid="uid://css7e3j7uvab2" path="res://Assets/Sprites/UI/start.png" id="7_6lgbh"]
+[ext_resource type="Script" path="res://Scripts/gameover_screens/restart_button.gd" id="8_2q4rn"]
+[ext_resource type="Texture2D" uid="uid://bvpd4mw55ndch" path="res://Assets/Sprites/UI/ui_score.png" id="9_c3quh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2k4b"]
+font_size = 44
+font_color = Color(0.912846, 0.859419, 0.699181, 1)
+
+[node name="GameoverPpower" type="Node2D"]
+script = ExtResource("1_t418e")
+
+[node name="bg" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_h5bue")
+
+[node name="sub" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(108, -18)
+texture = ExtResource("3_sdwu5")
+region_enabled = true
+region_rect = Rect2(219, 0, 186, 127)
+
+[node name="syb_dark" type="Sprite2D" parent="sub"]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_sdwu5")
+region_enabled = true
+region_rect = Rect2(0, 0, 186, 127)
+
+[node name="light_main" type="Sprite2D" parent="sub"]
+texture_filter = 1
+position = Vector2(-174, 113.5)
+texture = ExtResource("4_45xbo")
+offset = Vector2(0.5, 0.5)
+
+[node name="light_red" type="Sprite2D" parent="sub"]
+texture_filter = 1
+position = Vector2(32, -0.5)
+texture = ExtResource("5_wr0ib")
+offset = Vector2(0, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -255.0
+offset_top = -148.0
+offset_right = -215.0
+offset_bottom = -108.0
+scale = Vector2(12.7813, 7.62881)
+color = Color(0.0131618, 0.00751816, 0.0302227, 1)
+
+[node name="signal_lost" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-101, -105)
+texture = ExtResource("6_6qypr")
+region_enabled = true
+region_rect = Rect2(15, 7, 271, 48)
+
+[node name="power" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-95, -51)
+texture = ExtResource("6_6qypr")
+region_enabled = true
+region_rect = Rect2(11, 185, 274, 41)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="start_button" type="Button" parent="."]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = 30.0
+offset_right = -41.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(79, 25)
+focus_mode = 0
+icon = ExtResource("7_6lgbh")
+flat = true
+script = ExtResource("8_2q4rn")
+
+[node name="ambient" type="AudioStreamPlayer2D" parent="."]
+
+[node name="score" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(154, 50)
+texture = ExtResource("9_c3quh")
+
+[node name="Label" type="Label" parent="score"]
+visible = false
+offset_left = -78.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 77.0
+label_settings = SubResource("LabelSettings_n2k4b")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,175 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7uty5gnjlerl"]
+
+[ext_resource type="Texture2D" uid="uid://cv6jb2plnye58" path="res://Assets/Sprites/disorganised_moshpit_of_sprites.png" id="1_0lk2v"]
+[ext_resource type="Script" path="res://Scripts/hologram.gd" id="2_nuymg"]
+
+[node name="hologram" type="Sprite2D"]
+z_index = 4
+y_sort_enabled = true
+texture_filter = 1
+texture = ExtResource("1_0lk2v")
+offset = Vector2(0, 0.5)
+region_enabled = true
+region_rect = Rect2(0, 60, 28, 27)
+script = ExtResource("2_nuymg")
+
+[node name="lamp" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 5.0
+offset_bottom = 19.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="power1" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = -3.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = -5.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="power2" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_top = -8.0
+offset_right = 2.0
+offset_bottom = -5.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="power3" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 3.0
+offset_top = -8.0
+offset_right = 5.0
+offset_bottom = -5.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="power4" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 6.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = -5.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="power5" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 9.0
+offset_top = -8.0
+offset_right = 11.0
+offset_bottom = -5.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="oxygen1" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = -3.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = 2.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="oxygen2" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="oxygen3" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 5.0
+offset_bottom = 2.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="oxygen4" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 6.0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = 2.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="oxygen5" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 11.0
+offset_bottom = 2.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="pressure1" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = -3.0
+offset_top = 6.0
+offset_right = -1.0
+offset_bottom = 9.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="pressure2" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_top = 6.0
+offset_right = 2.0
+offset_bottom = 9.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="pressure3" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 5.0
+offset_bottom = 9.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="pressure4" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 8.0
+offset_bottom = 9.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="pressure5" type="ColorRect" parent="."]
+z_index = 5
+y_sort_enabled = true
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 9.0
+color = Color(1, 0.666667, 0.368627, 1)
+
+[node name="console2" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(6, 26)
+texture = ExtResource("1_0lk2v")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(2, 113, 11, 7)
+
+[node name="console2_alarm" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(6, 26)
+texture = ExtResource("1_0lk2v")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(14, 113, 11, 7)

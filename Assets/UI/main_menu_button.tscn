@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d33ao5nu5rpsg"]
+
+[ext_resource type="Script" path="res://Scripts/button_main_menu.gd" id="1_dpnge"]
+[ext_resource type="Texture2D" uid="uid://bjcdea7ndkw1y" path="res://Assets/Sprites/UI/ui_menu_buttons.png" id="2_sflpd"]
+
+[node name="main_menu_button" type="Button"]
+offset_right = 168.0
+offset_bottom = 32.0
+pivot_offset = Vector2(84, 16)
+flat = true
+script = ExtResource("1_dpnge")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(84, 16)
+texture = ExtResource("2_sflpd")
+region_enabled = true
+region_rect = Rect2(0, 99, 168, 32)

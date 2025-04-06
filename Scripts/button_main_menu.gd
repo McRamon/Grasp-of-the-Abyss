@@ -27,4 +27,10 @@ func _on_mouse_exited():
 	
 func _on_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_packed(scene_to_load)
+	
+	
+	var start_new = scene_to_load.instantiate()
+	get_tree().root.add_child(start_new)
+	get_tree().current_scene.queue_free()
+	get_tree().current_scene = start_new
+	_exit_tree()

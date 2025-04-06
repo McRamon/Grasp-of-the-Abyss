@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnkhamb0l605d"]
 
 [ext_resource type="Script" path="res://Scripts/leak_event.gd" id="1_nuk77"]
-[ext_resource type="Texture2D" uid="uid://dvrudnb6tcced" path="res://Assets/steam_texture.png" id="2_8cvy7"]
+[ext_resource type="Texture2D" uid="uid://dvrudnb6tcced" path="res://Assets/Sprites/steam_texture.png" id="2_8cvy7"]
 
 [sub_resource type="Curve" id="Curve_tchx7"]
 _data = [Vector2(0, 0.175824), 0.0, -0.313972, 0, 0, Vector2(0.28, 0.021978), -0.387847, 0.0, 0, 0]
@@ -36,7 +36,7 @@ hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 
 [node name="Node2D" type="Node2D"]
-z_index = 4
+z_index = 5
 y_sort_enabled = true
 script = ExtResource("1_nuk77")
 

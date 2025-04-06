@@ -1,7 +1,7 @@
 extends EventNode
 
 var sounds = {
-	"steam" : preload("res://Assets/Sounds/steam.ogg")
+	"sparks" : preload("res://Assets/Sounds/sparks.ogg")
 }
 
 var sound_loop:bool = false
@@ -44,8 +44,8 @@ func _process(delta):
 func activate():
 	super.activate()
 	sound_loop = true
-	$AudioStreamPlayer2D.stream = sounds["steam"]
-	$AudioStreamPlayer2D.pitch_scale = randf_range(0.9, 1.1)
+	$AudioStreamPlayer2D.stream = sounds["sparks"]
+	$AudioStreamPlayer2D.pitch_scale = randf_range(0.5, 0.8)
 	$AudioStreamPlayer2D.volume_db = AudioManager.global_sound_volume
 	$AudioStreamPlayer2D.play()
 	
@@ -69,15 +69,15 @@ func deactivate():
 			
 			
 func _input(event):
-	if (active_player and event.is_action_pressed("interact")):
-		emit_signal("fixed")
-		deactivate()
-		print("junkction box  fixed")
-		Animations.bumb(active_player, self)
-		get_parent().pressure_counter -= 2
-		if get_parent().pressure_counter < 0:
-			get_parent().pressure_counter = 0
-		print("pressure counter = ", get_parent().pressure_counter)
+	if active:
+		if (active_player and event.is_action_pressed("interact")):
+			emit_signal("fixed")
+			deactivate()
+			print("junkction box  fixed")
+			get_parent().power_counter -= 2
+			if get_parent().power_counter < 0:
+				get_parent().power_counter = 0
+			print("power counter = ", get_parent().power_counter)
 	
 			
 			

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cab842qpyoohu"]
+
+[ext_resource type="Script" path="res://Scripts/oxytank_station.gd" id="1_306ry"]
+[ext_resource type="Texture2D" uid="uid://cv6jb2plnye58" path="res://Assets/Sprites/disorganised_moshpit_of_sprites.png" id="2_txowa"]
+[ext_resource type="Texture2D" uid="uid://p5dl57fg7bhp" path="res://Assets/Sprites/arrow_ui.png" id="3_apyom"]
+[ext_resource type="Script" path="res://Scripts/e_ui.gd" id="4_nw8wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giopy"]
+size = Vector2(14, 14)
+
+[node name="oxytank_station" type="Node2D"]
+script = ExtResource("1_306ry")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_giopy")
+
+[node name="tank_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -10)
+texture = ExtResource("2_txowa")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(2, 15, 9, 18)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[node name="arrow_ui" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -35)
+texture = ExtResource("3_apyom")
+offset = Vector2(0.5, 0)
+script = ExtResource("4_nw8wq")

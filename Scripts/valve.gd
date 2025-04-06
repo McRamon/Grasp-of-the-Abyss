@@ -9,6 +9,7 @@ var active_player: Area2D = null
 
 
 
+
 func _ready():
 	if connected_pipe:
 		connected_pipe.activated.connect(_on_pipe_activation)
@@ -31,13 +32,14 @@ func _on_player_exited(player: Area2D):
 	active_player = null
 	
 func _input(event):
-	if (player_in_range and event.is_action_pressed("interact")):
-		if connected_pipe.active:
-			Animations.rotate($Sprite2D, 1)
-			emit_signal("turned")
-			$e_ui.visible = false
-			print("valve turned")
-			Animations.bumb(active_player, self)
+	if connected_pipe.active:
+		if (player_in_range and event.is_action_pressed("interact")):
+			if connected_pipe.active:
+				Animations.rotate($Sprite2D, 1)
+				emit_signal("turned")
+				$e_ui.visible = false
+				print("valve turned")
+				
 		
 	
 	

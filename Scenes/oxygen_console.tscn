@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://do1vo5chpo1bs"]
+
+[ext_resource type="Script" path="res://Scripts/oxygen_console.gd" id="1_1q68x"]
+[ext_resource type="Texture2D" uid="uid://cv6jb2plnye58" path="res://Assets/Sprites/disorganised_moshpit_of_sprites.png" id="1_6ek6f"]
+
+[node name="oxygen_console" type="Node2D"]
+script = ExtResource("1_1q68x")
+
+[node name="filler1" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_6ek6f")
+region_enabled = true
+region_rect = Rect2(7, 6, 1, 2)
+
+[node name="filler2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, 0)
+texture = ExtResource("1_6ek6f")
+region_enabled = true
+region_rect = Rect2(7, 6, 1, 2)
+
+[node name="filler3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4, 0)
+texture = ExtResource("1_6ek6f")
+region_enabled = true
+region_rect = Rect2(7, 6, 1, 2)
+
+[node name="filler4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, 0)
+texture = ExtResource("1_6ek6f")
+region_enabled = true
+region_rect = Rect2(7, 6, 1, 2)
+
+[node name="filler5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 0)
+texture = ExtResource("1_6ek6f")
+region_enabled = true
+region_rect = Rect2(7, 6, 1, 2)
+
+[node name="lamp" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, -6)
+texture = ExtResource("1_6ek6f")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(13, 0, 2, 4)
+
+[node name="lamp_red" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, -6)
+texture = ExtResource("1_6ek6f")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(7, 0, 2, 4)

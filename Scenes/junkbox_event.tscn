@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dtpuipfaw2jva"]
 
 [ext_resource type="Script" path="res://Scripts/junkbox_event.gd" id="1_xpabj"]
-[ext_resource type="Texture2D" uid="uid://surr77aj4hqs" path="res://Assets/e_ui.png" id="2_fsxun"]
-[ext_resource type="Texture2D" uid="uid://dvrudnb6tcced" path="res://Assets/steam_texture.png" id="2_oi1xv"]
-[ext_resource type="Texture2D" uid="uid://cv6jb2plnye58" path="res://Assets/disorganised_moshpit_of_sprites.png" id="3_0bnm3"]
+[ext_resource type="Texture2D" uid="uid://surr77aj4hqs" path="res://Assets/Sprites/e_ui.png" id="2_fsxun"]
+[ext_resource type="Texture2D" uid="uid://dvrudnb6tcced" path="res://Assets/Sprites/steam_texture.png" id="2_oi1xv"]
+[ext_resource type="Texture2D" uid="uid://cv6jb2plnye58" path="res://Assets/Sprites/disorganised_moshpit_of_sprites.png" id="3_0bnm3"]
 [ext_resource type="Script" path="res://Scripts/e_ui.gd" id="3_hv6tu"]
 
 [sub_resource type="Curve" id="Curve_u0p2w"]

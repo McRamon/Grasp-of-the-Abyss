@@ -3,7 +3,7 @@ extends Button
 
 var base_scale := Vector2.ONE
 var tween: Tween
-
+ 
 @export var scene_to_load: PackedScene
 
 func _ready() -> void:
@@ -26,8 +26,12 @@ func _on_mouse_exited():
 	tween.tween_property(self, "scale", Vector2.ONE, 0.2)
 	
 func _on_pressed():
-	if !scene_to_load:	
-		get_parent().get_parent().switch_scenes()
-	else:
-		get_tree().change_scene_to_packed(scene_to_load)
+	if tween:
+		tween.kill()
+	if get_tree().paused:
+		get_tree().paused = false
+		
+	var status = get_tree().change_scene_to_packed(scene_to_load)
+	if status != OK:
+		push_error("Scene change failed: ", status)
 	self.modulate = Color(1, 0.5, 0.5)

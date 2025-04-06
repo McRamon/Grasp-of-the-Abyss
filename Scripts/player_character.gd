@@ -8,6 +8,10 @@ var move_direction = {}
 
 signal player_moved
 
+@export var held_tank:Sprite2D
+var has_tank: bool = false
+var tank_fill:int
+
 var sounds = {
 	"jump" : preload("res://Assets/Sounds/step.wav"),
 	"step" : preload("res://Assets/Sounds/step.ogg")
@@ -23,11 +27,13 @@ var inputs = {"right": Vector2.RIGHT,
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
+	held_tank.visible = false
 	
 func _process(delta):
 	if !moving and move_direction.size() > 0:
 		var next_dir = move_direction.keys()[0]
 		move(next_dir)
+		
 	
 func _unhandled_input(event):
 
@@ -62,4 +68,10 @@ func move(dir):
 		emit_signal("player_moved")
 		moving = false
 		
-		
+func remove_tank():
+	has_tank = false
+	held_tank.visible = false
+	
+func take_tank():
+	has_tank = true
+	held_tank.visible = true

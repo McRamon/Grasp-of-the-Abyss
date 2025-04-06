@@ -1,13 +1,21 @@
-[gd_scene load_steps=11 format=4 uid="uid://gdr5pm078wqb"]
+[gd_scene load_steps=19 format=4 uid="uid://gdr5pm078wqb"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_38go5"]
-[ext_resource type="Texture2D" uid="uid://cwktbjqhn23h7" path="res://Assets/base_tiles.png" id="2_auriy"]
+[ext_resource type="Texture2D" uid="uid://cwktbjqhn23h7" path="res://Assets/Sprites/base_tiles.png" id="2_auriy"]
 [ext_resource type="PackedScene" uid="uid://c052mx3sdib4k" path="res://Scenes/Player.tscn" id="3_0kawi"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_ifnfa"]
 [ext_resource type="PackedScene" uid="uid://b6nfj13v2r2u8" path="res://Scenes/valve.tscn" id="5_o8mhy"]
 [ext_resource type="PackedScene" uid="uid://bnkhamb0l605d" path="res://Scenes/leak_event.tscn" id="6_6xitd"]
 [ext_resource type="PackedScene" uid="uid://dtpuipfaw2jva" path="res://Scenes/junkbox_event.tscn" id="7_4s1o3"]
 [ext_resource type="PackedScene" uid="uid://rk3p8qdbhatc" path="res://Scenes/junkbox_player_detector.tscn" id="8_karev"]
+[ext_resource type="PackedScene" uid="uid://cgauf65k542wu" path="res://Scenes/oxytank_generator.tscn" id="9_bnspi"]
+[ext_resource type="PackedScene" uid="uid://do1vo5chpo1bs" path="res://Scenes/oxygen_console.tscn" id="10_qm1vs"]
+[ext_resource type="PackedScene" uid="uid://cab842qpyoohu" path="res://Scenes/oxytank_station.tscn" id="11_a3qeg"]
+[ext_resource type="PackedScene" uid="uid://dfcw7kbsewr3g" path="res://Scenes/oxystation_console.tscn" id="12_c1qit"]
+[ext_resource type="PackedScene" uid="uid://b0ndrkkf0crpa" path="res://Scenes/idle_console.tscn" id="14_3or2u"]
+[ext_resource type="PackedScene" uid="uid://b7uty5gnjlerl" path="res://Scenes/hologram.tscn" id="15_fdgae"]
+[ext_resource type="Texture2D" uid="uid://dw35s8r44j5x2" path="res://Assets/Sprites/ui_elements.png" id="15_hupul"]
+[ext_resource type="Script" path="res://Scripts/e_ui.gd" id="16_07ubp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxocw"]
 texture = ExtResource("2_auriy")
@@ -305,7 +313,6 @@ texture = ExtResource("2_auriy")
 2:8/0 = 0
 2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:8/0 = 0
-3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:8/0 = 0
 5:8/0 = 0
 6:8/0 = 0
@@ -518,7 +525,6 @@ sources/2 = SubResource("TileSetAtlasSource_jxocw")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_38go5")
-time_until_event = 10
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -597,6 +603,46 @@ bus = &"SFX"
 [node name="ambient" type="AudioStreamPlayer2D" parent="."]
 bus = &"Ambience"
 
-[node name="alarm_red" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.586986, 0.0984252, 0.181601, 1)
+[node name="oxytank_generator" parent="." node_paths=PackedStringArray("connected_console") instance=ExtResource("9_bnspi")]
+position = Vector2(120, 40)
+connected_console = NodePath("../oxygen_console")
+
+[node name="oxygen_console" parent="." node_paths=PackedStringArray("connected_junkbox", "connected_oxygen") instance=ExtResource("10_qm1vs")]
+position = Vector2(69.5, 27)
+connected_junkbox = NodePath("../junkbox_event")
+connected_oxygen = NodePath("../oxytank_generator")
+
+[node name="oxytank_station" parent="." node_paths=PackedStringArray("connected_console") instance=ExtResource("11_a3qeg")]
+position = Vector2(56, 136)
+connected_console = NodePath("../oxystation_console")
+
+[node name="oxystation_console" parent="." node_paths=PackedStringArray("connected_junkbox", "connected_oxystation") instance=ExtResource("12_c1qit")]
+position = Vector2(37, 124)
+connected_junkbox = NodePath("../junkbox_event2")
+connected_oxystation = NodePath("../oxytank_station")
+
+[node name="idle_console" parent="." instance=ExtResource("14_3or2u")]
+z_index = 3
+y_sort_enabled = true
+position = Vector2(278, 106)
+
+[node name="hologram" parent="." instance=ExtResource("15_fdgae")]
+position = Vector2(285, 85)
+
+[node name="supply" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(46, 90)
+texture = ExtResource("15_hupul")
+region_enabled = true
+region_rect = Rect2(0, 10, 28, 9)
+script = ExtResource("16_07ubp")
+
+[node name="refill" type="Sprite2D" parent="."]
+z_index = 4
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(110, -6)
+texture = ExtResource("15_hupul")
+region_enabled = true
+region_rect = Rect2(0, 0, 25, 9)
+script = ExtResource("16_07ubp")

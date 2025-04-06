@@ -1,8 +1,13 @@
 extends Node2D
 
-var pause_menu = preload("res://Scenes/pause_menu.tscn")
+var pause_menu = preload("res://Assets/UI/pause_menu.tscn")
 var pause_menu_instance = null
 var is_paused = false
+var second_counter:float = 0
+
+@onready var gameover_scenes = {
+	"gameover_pressure" = preload("res://Scenes/Game Over/gameover_pressure.tscn")
+	}
 
 var sounds = {
 	"ambient" : preload("res://Assets/Sounds/ambient.ogg"),
@@ -13,7 +18,7 @@ var ambience_active:bool = false
 var sound_loop_ambience:bool = false
 var sound_loop_alarm:bool = false
 
-@export var time_until_event: int
+var time_until_event: int = 100
 var event_timer: int = 0
 
 #game over conditions. Different event_nodes raise the counter.
@@ -28,6 +33,10 @@ var power_gameover:int = 5
 
 var alarm_active:bool = false
 var alarm_playing:bool = false
+var alarm_counter:int = 0
+
+var score:int = 0
+
 
 func _ready():
 	$ambient.finished.connect(sound_loop_func)
@@ -35,12 +44,13 @@ func _ready():
 	$player_character.player_moved.connect(_on_player_moved)
 	
 func _process(delta):
-	var second_counter = 0
 	second_counter += delta
 	if second_counter >= 1.0:
 		event_timer += 1
+		score += 1
 		second_counter -= 1.0
-		
+		ScoreCounter.score = score
+		print ("score = ", score, "event_timer = ", event_timer)
 		
 	if event_timer >= time_until_event:
 		event_timer = 0
@@ -59,7 +69,12 @@ func _process(delta):
 	if pressure_counter >= 4 or oxygen_counter >= 4 or power_counter >= 4:
 		alarm_active = true
 	else:
+		$alarm.stop()
 		alarm_active = false	
+		alarm_playing = false
+		
+	if pressure_counter > 5 or oxygen_counter > 5 or power_counter > 5 or alarm_counter > 5:
+		game_over()
 	
 	if alarm_active:
 		if !alarm_playing:
@@ -69,6 +84,8 @@ func _process(delta):
 			alarm_playing = true
 			print("alarm is playing")
 			sound_loop_alarm = true
+	difficulty_increase()
+	oxy_ui_handle()
 	
 func sound_loop_func():
 	if sound_loop_ambience:
@@ -116,3 +133,53 @@ func random_event():
 	
 func ambience_for_cutscene():
 	AudioServer.set_bus_effect_enabled(1, 0, true)
+	
+func difficulty_increase():
+	if score < 50:
+		time_until_event = 100
+	if score >= 20 and score < 50:
+		time_until_event = 90
+	if score >= 50 and score < 100:
+		time_until_event = 70
+	if score >= 100 and score < 150:
+		time_until_event = 40
+	if score >= 150 and score < 200:
+		time_until_event = 20
+	if score >= 200 and score < 300:
+		time_until_event = 10
+		
+func oxy_ui_handle():
+	var gen_has_tank = $oxytank_generator.has_tank
+	var stat_has_tank = $oxytank_station.has_tank
+	
+	$oxytank_generator.arrow.visible = gen_has_tank or (!gen_has_tank and !stat_has_tank)
+	$oxytank_station.arrow.visible = stat_has_tank or (!gen_has_tank and !stat_has_tank)
+	
+	$refill.visible = !gen_has_tank and !stat_has_tank
+	$supply.visible = !gen_has_tank and !stat_has_tank
+	
+	
+func game_over():
+	if power_counter > 5:
+		_exit_tree()
+		get_tree().change_scene_to_file("res://Scripts/gameover_screens/gameover_power.gd")
+	if oxygen_counter > 5:
+		_exit_tree()
+		get_tree().change_scene_to_file("res://Scenes/Game Over/gameover_oxygen.tscn")
+	if pressure_counter > 5:
+		_exit_tree()
+		get_tree().change_scene_to_file("res://Scenes/Game Over/gameover_pressure.tscn")
+
+	if alarm_counter > 5:
+		_exit_tree()
+		get_tree().change_scene_to_file("res://Scripts/gameover_screens/gameover_siren.gd")
+		
+func _exit_tree():
+	for target in Animations.active_float_tweens:
+		var tween = Animations.active_float_tweens[target]
+		if tween.is_valid():
+			tween.kill()
+	Animations.active_float_tweens.clear()
+
+
+	
